@@ -369,10 +369,68 @@ function initPublicationFilters() {
     const searchInput = document.getElementById('pubSearch');
     const pubCards = document.querySelectorAll('.pub-card');
     const countDisplay = document.getElementById('pubCountDisplay');
+    const pubList = document.getElementById('publicationsList');
+    const pubStats = document.getElementById('pubStats');
+
+    // 1. Calculate Stats from existing cards
+    const stats = {
+        total: pubCards.length,
+        journal: 0,
+        book: 0,
+        magazine: 0
+    };
+
+    pubCards.forEach(card => {
+        const type = card.dataset.type;
+        if (stats[type] !== undefined) stats[type]++;
+    });
+
+    // 2. Build Dashboard HTML
+    if (pubStats) {
+        pubStats.innerHTML = `
+            <div class="stat-card" onclick="document.querySelector('[data-filter=\\'all\\']').click()">
+                <div class="stat-icon">📄</div>
+                <div class="stat-number">${stats.total}</div>
+                <div class="stat-label">Total Publications</div>
+            </div>
+            <div class="stat-card" onclick="document.querySelector('[data-filter=\\'journal\\']').click()">
+                <div class="stat-icon">🔬</div>
+                <div class="stat-number">${stats.journal}</div>
+                <div class="stat-label">Journal Articles</div>
+            </div>
+            <div class="stat-card" onclick="document.querySelector('[data-filter=\\'book\\']').click()">
+                <div class="stat-icon">📚</div>
+                <div class="stat-number">${stats.book}</div>
+                <div class="stat-label">Book Chapters</div>
+            </div>
+            <div class="stat-card" onclick="document.querySelector('[data-filter=\\'magazine\\']').click()">
+                <div class="stat-icon">📰</div>
+                <div class="stat-number">${stats.magazine}</div>
+                <div class="stat-label">Magazines</div>
+            </div>
+        `;
+    }
 
     function filterPublications() {
-        const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
-        const searchTerm = searchInput.value.toLowerCase().trim();
+        const activeBtn = document.querySelector('.filter-btn.active');
+        if (!activeBtn) return;
+        const activeFilter = activeBtn.dataset.filter;
+        const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+
+        const pubCountContainer = document.querySelector('.pub-count');
+
+        // Mode Switching
+        if (activeFilter === 'overview') {
+            if (pubStats) pubStats.classList.add('active');
+            if (pubList) pubList.style.display = 'none';
+            if (pubCountContainer) pubCountContainer.style.display = 'none';
+            return;
+        } else {
+            if (pubStats) pubStats.classList.remove('active');
+            if (pubList) pubList.style.display = 'flex';
+            if (pubCountContainer) pubCountContainer.style.display = 'block';
+        }
+
         let visibleCount = 0;
 
         pubCards.forEach(card => {
@@ -389,9 +447,10 @@ function initPublicationFilters() {
             }
         });
 
-        countDisplay.textContent = visibleCount;
+        if (countDisplay) countDisplay.textContent = visibleCount;
     }
 
+    // Event Listeners
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
@@ -400,7 +459,21 @@ function initPublicationFilters() {
         });
     });
 
-    searchInput.addEventListener('input', filterPublications);
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            // Auto-switch to 'all' if searching from overview
+            const currentFilter = document.querySelector('.filter-btn.active').dataset.filter;
+            if (currentFilter === 'overview' && searchInput.value.trim() !== '') {
+                const allBtn = document.querySelector('[data-filter="all"]');
+                if (allBtn) allBtn.click();
+            } else {
+                filterPublications();
+            }
+        });
+    }
+
+    // Initial Run
+    filterPublications();
 }
 
 // ============================================
@@ -486,6 +559,57 @@ function initThemeToggle() {
     });
 }
 
+// Research Slider with Bottom Nav
+function initResearchSlider() {
+    const grid = document.getElementById('researchGrid');
+    const prevBtn = document.getElementById('researchPrev');
+    const nextBtn = document.getElementById('researchNext');
+    const dotsContainer = document.getElementById('researchDots');
+
+    if (!grid || !prevBtn || !nextBtn) return;
+
+    const cards = grid.querySelectorAll('.research-card');
+
+    // Create dots
+    cards.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            const cardWidth = grid.offsetWidth;
+            grid.scrollTo({
+                left: cards[index].offsetLeft - grid.offsetLeft,
+                behavior: 'smooth'
+            });
+        });
+        dotsContainer.appendChild(dot);
+    });
+
+    // Handle Arrows
+    prevBtn.addEventListener('click', () => {
+        const scrollAmount = grid.offsetWidth;
+        grid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+        const scrollAmount = grid.offsetWidth;
+        grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    // Update dots on scroll
+    grid.addEventListener('scroll', () => {
+        const scrollLeft = grid.scrollLeft;
+        const gap = parseFloat(getComputedStyle(grid).gap) || 0;
+        const cardWidth = cards[0].offsetWidth + gap;
+        const activeIndex = Math.round(scrollLeft / (cardWidth || 1));
+
+        const dots = dotsContainer.querySelectorAll('.dot');
+        dots.forEach((dot, i) => {
+            if (dot) dot.classList.toggle('active', i === activeIndex);
+        });
+    });
+}
+
 // ============================================
 // INITIALIZE EVERYTHING
 // ============================================
@@ -506,4 +630,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initContactForm();
     initActiveNavHighlight();
+    initResearchSlider();
 });
+
