@@ -504,14 +504,41 @@ function initContactForm() {
         e.preventDefault();
         const btn = form.querySelector('.btn-submit');
         const originalHTML = btn.innerHTML;
-        btn.innerHTML = '<span>Message Sent! ✓</span>';
-        btn.style.background = 'linear-gradient(135deg, #1EF2D6, #00C2A8)';
 
-        setTimeout(() => {
-            btn.innerHTML = originalHTML;
-            btn.style.background = '';
-            form.reset();
-        }, 3000);
+        // Show loading state
+        btn.innerHTML = '<span>Sending...</span>';
+        btn.disabled = true;
+
+        const formData = new FormData();
+        formData.append('name', document.getElementById('formName').value);
+        formData.append('email', document.getElementById('formEmail').value);
+        formData.append('subject', document.getElementById('formSubject').value);
+        formData.append('message', document.getElementById('formMessage').value);
+
+        // REPLACE THIS URL with your actual Google Apps Script Web App URL after deployment
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxjDlel1xqJw0IjdqKErgNSpJIcybkXYw9fWFHPaTqpvdKhuhmTv1YEN3QzAXADimji/exec';
+
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                btn.innerHTML = '<span>Message Sent! ✓</span>';
+                btn.style.background = 'linear-gradient(135deg, #1EF2D6, #00C2A8)';
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                btn.innerHTML = '<span>Error! Try Again</span>';
+                btn.style.background = 'linear-gradient(135deg, #ff4b2b, #ff416c)';
+            })
+            .finally(() => {
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 3000);
+            });
     });
 }
 
@@ -610,6 +637,111 @@ function initResearchSlider() {
     });
 }
 
+// Deposits Slider with Bottom Nav
+function initDepositsSlider() {
+    const grid = document.getElementById('depositsGrid');
+    const prevBtn = document.getElementById('depositsPrev');
+    const nextBtn = document.getElementById('depositsNext');
+    const dotsContainer = document.getElementById('depositsDots');
+
+    if (!grid || !prevBtn || !nextBtn) return;
+
+    const cards = grid.querySelectorAll('.deposit-card');
+
+    // Create dots
+    cards.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            grid.scrollTo({
+                left: cards[index].offsetLeft - grid.offsetLeft,
+                behavior: 'smooth'
+            });
+        });
+        dotsContainer.appendChild(dot);
+    });
+
+    // Handle Arrows
+    prevBtn.addEventListener('click', () => {
+        const scrollAmount = grid.offsetWidth;
+        grid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+        const scrollAmount = grid.offsetWidth;
+        grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    // Update dots on scroll
+    grid.addEventListener('scroll', () => {
+        const scrollLeft = grid.scrollLeft;
+        const gap = parseFloat(getComputedStyle(grid).gap) || 0;
+        const cardWidth = cards[0].offsetWidth + gap;
+        const activeIndex = Math.round(scrollLeft / (cardWidth || 1));
+
+        const dots = dotsContainer.querySelectorAll('.dot');
+        dots.forEach((dot, i) => {
+            if (dot) dot.classList.toggle('active', i === activeIndex);
+        });
+    });
+}
+
+// Skills Slider with Bottom Nav (Mobile/Tablet)
+function initSkillsSlider() {
+    const grid = document.getElementById('skillsGrid');
+    const prevBtn = document.getElementById('skillsPrev');
+    const nextBtn = document.getElementById('skillsNext');
+    const dotsContainer = document.getElementById('skillsDots');
+
+    if (!grid || !prevBtn || !nextBtn) return;
+
+    const cards = grid.querySelectorAll('.skill-category');
+
+    // Create dots
+    cards.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            grid.scrollTo({
+                left: cards[index].offsetLeft - grid.offsetLeft,
+                behavior: 'smooth'
+            });
+        });
+        dotsContainer.appendChild(dot);
+    });
+
+    // Handle Arrows
+    prevBtn.addEventListener('click', () => {
+        const scrollAmount = grid.offsetWidth;
+        grid.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+
+    nextBtn.addEventListener('click', () => {
+        const scrollAmount = grid.offsetWidth;
+        grid.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+
+    // Update dots on scroll
+    grid.addEventListener('scroll', () => {
+        const scrollLeft = grid.scrollLeft;
+        const gap = parseFloat(getComputedStyle(grid).gap) || 0;
+        const activeIndex = Math.round(scrollLeft / ((cards[0].offsetWidth + gap) || 1));
+
+        const dots = dotsContainer.querySelectorAll('.dot');
+        dots.forEach((dot, i) => {
+            if (dot) dot.classList.toggle('active', i === activeIndex);
+        });
+    });
+}
+
 // ============================================
 // INITIALIZE EVERYTHING
 // ============================================
@@ -631,5 +763,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initActiveNavHighlight();
     initResearchSlider();
+    initDepositsSlider();
+    initSkillsSlider();
 });
 

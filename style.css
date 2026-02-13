@@ -513,7 +513,7 @@ em {
 }
 
 .section-title {
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(1rem, 2vw, 1.75rem);
     font-weight: 700;
     letter-spacing: -0.02em;
     position: relative;
@@ -599,6 +599,7 @@ em {
 .petri-dish-frame {
     width: 100%;
     max-width: clamp(15.6rem, 400px, 100%);
+    margin: 0 auto;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     position: relative;
@@ -632,11 +633,68 @@ em {
     text-decoration: none;
 }
 
+/* Platform Colors for Icons */
+.profile-link-icon .ai-scopus {
+    color: #EB5F07;
+}
+
+.profile-link-icon .ai-researchgate {
+    color: #00CCBB;
+}
+
+.profile-link-icon .ai-google-scholar {
+    color: #4285F4;
+}
+
+.profile-link-icon .ai-orcid {
+    color: #A6CE39;
+}
+
+.profile-link-icon .ai-clarivate {
+    color: #5E33BF;
+}
+
+.profile-link-icon .fa-linkedin-in {
+    color: #0077B5;
+}
+
+.profile-link-icon .fa-instagram {
+    color: #E4405F;
+}
+
 .profile-link-icon:hover {
-    color: var(--primary);
     border-color: var(--primary);
     transform: translateY(-5px);
     box-shadow: 0 5px 15px var(--primary-glow);
+}
+
+/* Maintain platform color on hover */
+.profile-link-icon:hover .ai-scopus {
+    color: #EB5F07;
+}
+
+.profile-link-icon:hover .ai-researchgate {
+    color: #00CCBB;
+}
+
+.profile-link-icon:hover .ai-google-scholar {
+    color: #4285F4;
+}
+
+.profile-link-icon:hover .ai-orcid {
+    color: #A6CE39;
+}
+
+.profile-link-icon:hover .ai-clarivate {
+    color: #5E33BF;
+}
+
+.profile-link-icon:hover .fa-linkedin-in {
+    color: #0077B5;
+}
+
+.profile-link-icon:hover .fa-instagram {
+    color: #E4405F;
 }
 
 .profile-link-icon.disabled {
@@ -842,6 +900,8 @@ em {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 15%;
+    /* Alignment adjustment for better face centering */
     border-radius: 50%;
     display: block;
 }
@@ -1194,43 +1254,49 @@ em {
     }
 }
 
-/* Mobile Styles (Micro Reduction for 4-Col Fit) */
+/* Mobile Styles (Nano Reduction for 4-Col Fit) */
 @media (max-width: 768px) {
     .pub-stats-grid.active {
-        gap: 2px !important;
-        margin: 0 -0.5rem;
-        /* Negative margin to gain screen width */
-        width: calc(100% + 1rem);
+        gap: 1px !important;
+        margin: 0 -0.8rem;
+        /* Pull closer to screen edge */
+        width: calc(100% + 1.6rem);
     }
 
     .stat-card {
-        padding: 0.25rem 0;
-        /* Minimal padding */
-        border-radius: 4px;
+        padding: 0.15rem 0;
+        /* Near-zero padding */
+        border-radius: 3px;
         border-width: 0.5px;
+        min-width: 0;
+        /* Allow shrinking */
     }
 
     .stat-icon {
-        width: 1.2rem;
-        height: 1.2rem;
-        font-size: 0.7rem;
-        padding: 0.25rem;
-        margin-bottom: 0.2rem;
+        width: 1rem;
+        height: 1rem;
+        font-size: 0.35rem;
+        /* Reduced 30% */
+        padding: 0.15rem;
+        margin-bottom: 0.1rem;
         border-width: 0.5px;
     }
 
     .stat-number {
         font-size: 0.5rem;
-        margin-bottom: 0px;
-        line-height: 1.2;
+        /* Reduced 30% (from 0.7) */
+        margin-bottom: 0;
+        line-height: 1;
     }
 
     .stat-label {
-        font-size: 0.4rem;
-        /* Tiny text */
-        line-height: 1.1;
-        padding: 0 1px;
+        font-size: 0.22rem;
+        /* Reduced 30% (from 0.32) */
+        line-height: 1;
+        padding: 0;
+        letter-spacing: 0;
         word-wrap: break-word;
+        white-space: normal;
     }
 }
 
@@ -1467,13 +1533,33 @@ em {
 /* ============================================
    NCBI DEPOSITS SECTION
    ============================================ */
+.deposits-section {
+    padding-top: 1vh;
+    /* Reduced from default padding */
+    margin-top: -2rem;
+    /* Pull up closer to previous section */
+}
+
 .deposits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-    gap: 1.2rem;
+    display: flex;
+    gap: 0.8rem;
+    /* Reduced gap */
+    overflow-x: auto;
+    padding: 2rem 0.2rem;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+}
+
+.deposits-grid::-webkit-scrollbar {
+    display: none;
 }
 
 .deposit-card {
+    flex: 0 0 calc((100% - 3rem) / 3);
+    scroll-snap-align: center;
     padding: 1.5rem;
     background: var(--glass-bg);
     backdrop-filter: blur(1rem);
@@ -1481,6 +1567,18 @@ em {
     border-radius: 0.75rem;
     transition: all var(--transition-smooth);
     text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .deposit-card {
+        flex: 0 0 calc((100% - 1.5rem) / 2);
+    }
+}
+
+@media (max-width: 600px) {
+    .deposit-card {
+        flex: 0 0 100%;
+    }
 }
 
 .deposit-card:hover {
@@ -1531,7 +1629,7 @@ em {
    EXPERIENCE & EDUCATION (DNA TIMELINE)
    ============================================ */
 .experience-section {
-    background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-alt) 50%, var(--bg-dark) 100%);
+    background: transparent;
 }
 
 .timeline {
@@ -1727,7 +1825,10 @@ em {
    SKILLS SECTION
    ============================================ */
 .skills-section {
-    background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-alt) 50%, var(--bg-dark) 100%);
+    background: transparent;
+    margin-top: -3rem;
+    /* Pull up */
+    padding-top: 1rem;
 }
 
 .skills-grid {
@@ -1779,9 +1880,61 @@ em {
     border-color: var(--border-glow);
 }
 
+/* Default: Hide slider controls for skills on desktop */
+.skill-nav-controls {
+    display: none;
+}
+
+/* Mobile/Tablet Slider for Skills matches Deposits */
+@media (max-width: 1024px) {
+    .skills-grid {
+        display: flex;
+        gap: 0.8rem;
+        overflow-x: auto;
+        padding: 1rem 0.2rem;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        width: 100%;
+    }
+
+    .skills-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .skill-category {
+        flex: 0 0 calc((100% - 1rem) / 2);
+        scroll-snap-align: center;
+        min-width: 0;
+    }
+
+    /* Show controls on mobile/tablet */
+    .skill-nav-controls {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 1rem;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .skill-category {
+        flex: 0 0 85%;
+    }
+}
+
 /* ============================================
    CONTACT SECTION
    ============================================ */
+.contact-section {
+    background: transparent;
+    margin-top: -3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
+}
+
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -1917,7 +2070,7 @@ em {
     position: relative;
     z-index: 1;
     border-top: 1px solid var(--border-subtle);
-    padding: 3rem 5% 1.5rem;
+    padding: 1.5rem 5%;
 }
 
 .footer-container {
@@ -1925,54 +2078,8 @@ em {
     margin: 0 auto;
 }
 
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-brand {
-    max-width: 25rem;
-}
-
-.footer-logo {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--text-primary);
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.footer-brand p {
-    font-size: clamp(0.78rem, 0.9vw, 0.88rem);
-    color: var(--text-muted);
-    line-height: 1.6;
-}
-
-.footer-links {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.footer-links a {
-    font-size: clamp(0.78rem, 0.9vw, 0.88rem);
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-}
-
-.footer-links a:hover {
-    color: var(--primary);
-}
 
 .footer-bottom {
-    border-top: 1px solid var(--border-subtle);
-    padding-top: 1.5rem;
     text-align: center;
 }
 
@@ -2061,6 +2168,12 @@ em {
 }
 
 @media (max-width: 768px) {
+
+    /* Increased photo size for better visibility on tablets and mobile */
+    .petri-dish-frame {
+        max-width: 280px;
+    }
+
     .nav-links {
         position: fixed;
         top: 0;
@@ -2139,6 +2252,10 @@ em {
 
     :root {
         --section-padding: 6vh 4%;
+    }
+
+    .petri-dish-frame {
+        max-width: 240px;
     }
 
     .hero-section {
