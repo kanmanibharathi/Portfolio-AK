@@ -385,6 +385,9 @@ function initPublicationFilters() {
         if (stats[type] !== undefined) stats[type]++;
     });
 
+    // Update Total to only include Journal Articles and Book Chapters as per user request
+    stats.total = stats.journal + stats.book;
+
     // 2. Build Dashboard HTML
     if (pubStats) {
         pubStats.innerHTML = `
@@ -441,7 +444,14 @@ function initPublicationFilters() {
 
             if (matchesFilter && matchesSearch) {
                 card.classList.remove('hidden');
-                visibleCount++;
+                // Increment visibleCount: 
+                // If filtering 'all', only count journals and books as "Publications" per user request.
+                // If filtering a specific category, count items in that category.
+                if (activeFilter === 'all') {
+                    if (type === 'journal' || type === 'book') visibleCount++;
+                } else {
+                    visibleCount++;
+                }
             } else {
                 card.classList.add('hidden');
             }
