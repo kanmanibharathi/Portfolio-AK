@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akash Krishnamoorthi | Microbiologist & Researcher</title>
+    <meta name="description"
+        content="Portfolio of Akash Krishnamoorthi — Ph.D. Researcher in Agricultural Microbiology specializing in LDPE biodegradation, microbial ecology, and sustainable biotechnology.">
+    <meta name="keywords"
+        content="Akash Krishnamoorthi, Microbiology, LDPE Biodegradation, Tenebrio molitor, Agricultural Microbiology, Researcher">
+    <meta name="author" content="Akash Krishnamoorthi">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- PARTICLE CANVAS BACKGROUND -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- NAVIGATION -->
+    <nav id="mainNav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">🔬</span>
+                <span class="logo-text">AK</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#research" class="nav-link">Research</a>
+                <a href="#publications" class="nav-link">Publications</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+                <div class="theme-toggle-track">
+                    <span class="theme-icon sun">☀️</span>
+                    <span class="theme-icon moon">🌙</span>
+                    <div class="theme-toggle-thumb"></div>
+                </div>
+            </button>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- SCROLL PROGRESS -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="hero-tag reveal-up">Researcher · Microbiologist · Innovator</div>
+                <h1 class="hero-name reveal-up">
+                    <span class="name-line">Akash</span>
+                    <span class="name-line accent">Krishnamoorthi</span>
+                </h1>
+                <p class="hero-subtitle reveal-up">
+                    Agricultural Microbiology &middot; Environmental Microbiology &middot; Biodegradation
+                </p>
+                <div class="hero-cta reveal-up">
+                    <a href="asserts/AKASH_CV.pdf" download class="btn-primary"><span>Get CV</span><span
+                            class="btn-arrow">↓</span></a>
+                    <a href="#contact" class="btn-secondary">Get in Touch</a>
+                </div>
+                <div class="hero-stats reveal-up">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="11">0</span>
+                        <span class="stat-label">Publications</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="8">0</span>
+                        <span class="stat-label">NCBI Deposits</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="4">0</span>
+                        <span class="stat-label">Awards</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="molecular-network" id="molecularNetwork"></div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="section about-section">
+        <div class="section-container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">01 — About</span>
+                <h2 class="section-title">Research Philosophy</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-image-container reveal-up">
+                    <div class="petri-dish-frame">
+                        <div class="petri-dish-border"></div>
+                        <div class="profile-placeholder">
+                            <img src="asserts/png.png" alt="Akash Krishnamoorthi" class="profile-photo">
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content reveal-up">
+                    <p class="about-text">
+                        Microbiologist with hands-on research experience in environmental and applied microbiology.
+                        Proficient in the biodegradation of LDPE using microbial consortia. Skilled in formulating and
+                        applying microbial inoculants and liquid biofertilizers. Passionate about sustainable
+                        biotechnological solutions and microbial ecology.
+                    </p>
+                    <p class="about-text">
+                        Investigated mosquitocidal properties of biosurfactants for eco-friendly vector control.
+                        Conducted gut microbiota analysis of <em>Tenebrio molitor</em> for potential probiotic and
+                        biodegradation applications.
+                    </p>
+                    <div class="research-domains">
+                        <span class="domain-pill">Microbiome</span>
+                        <span class="domain-pill">LDPE Biodegradation</span>
+                        <span class="domain-pill">Plastic Degradation</span>
+                        <span class="domain-pill">Molecular Docking</span>
+                        <span class="domain-pill">Biosurfactants</span>
+                        <span class="domain-pill">Gut Microbiota</span>
+                        <span class="domain-pill">Biofertilizers</span>
+                    </div>
+                    <div class="about-ids">
+                        <a href="https://www.scopus.com/authid/detail.uri?authorId=59062764600" target="_blank"
+                            class="id-badge">
+                            <span class="id-label">Scopus</span>
+                            <span class="id-value">59062764600</span>
+                        </a>
+                        <a href="https://orcid.org/0000-0002-1858-8047" target="_blank" class="id-badge">
+                            <span class="id-label">ORCID</span>
+                            <span class="id-value">0000-0002-1858-8047</span>
+                        </a>
+                        <a href="https://www.researchgate.net/profile/Akash-Krishnamoorthi/research" target="_blank"
+                            class="id-badge">
+                            <span class="id-label">ResearchGate</span>
+                            <span class="id-value">Profile →</span>
+                        </a>
+                        <a href="https://www.linkedin.com/feed/" target="_blank" class="id-badge">
+                            <span class="id-label">LinkedIn</span>
+                            <span class="id-value">Profile →</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RESEARCH AREAS SECTION ===== -->
+    <section id="research" class="section research-section">
+        <div class="section-container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">02 — Research</span>
+                <h2 class="section-title">Research Areas</h2>
+            </div>
+            <div class="research-grid">
+                <div class="research-card reveal-up" data-delay="0">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">🧬</div>
+                    <h3 class="card-title">LDPE Biodegradation</h3>
+                    <p class="card-description">Enhanced biodegradation and mineralization of Low-Density Polyethylene
+                        using bacterial strains from the gut of plastic-eating mealworms.</p>
+                    <div class="card-tags">
+                        <span>Priestia megaterium</span>
+                        <span>Bacillus subtilis</span>
+                        <span>SEM/TEM</span>
+                    </div>
+                </div>
+                <div class="research-card reveal-up" data-delay="100">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">🧫</div>
+                    <h3 class="card-title">Gut Microbiota Analysis</h3>
+                    <p class="card-description">Screening and characterization of LDPE degrading bacteria from gut of
+                        Styrofoam fed <em>Tenebrio molitor</em> for biodegradation applications.</p>
+                    <div class="card-tags">
+                        <span>Tenebrio molitor</span>
+                        <span>16S rRNA</span>
+                        <span>NCBI</span>
+                    </div>
+                </div>
+                <div class="research-card reveal-up" data-delay="200">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">🧪</div>
+                    <h3 class="card-title">Biosurfactant Research</h3>
+                    <p class="card-description">Mosquitocidal activity of biosurfactants and their application in
+                        eco-friendly vector control and environmental sustainability.</p>
+                    <div class="card-tags">
+                        <span>Biosurfactants</span>
+                        <span>Vector Control</span>
+                        <span>Biocontrol</span>
+                    </div>
+                </div>
+                <div class="research-card reveal-up" data-delay="300">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">🌱</div>
+                    <h3 class="card-title">Biofertilizer Development</h3>
+                    <p class="card-description">Formulation of liquid biofertilizer consortium and assessing shelf life
+                        of microbial inoculants for enhanced crop productivity.</p>
+                    <div class="card-tags">
+                        <span>Liquid Formulations</span>
+                        <span>Rice & Bhendi</span>
+                        <span>Field Trials</span>
+                    </div>
+                </div>
+                <div class="research-card reveal-up" data-delay="400">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">🔬</div>
+                    <h3 class="card-title">Molecular Characterization</h3>
+                    <p class="card-description">Advanced spectral and molecular characterization of nanoparticles using
+                        DLS, SEM, TEM, NMR, XRD, AFM, and Confocal Laser Microscopy.</p>
+                    <div class="card-tags">
+                        <span>LC-MS</span>
+                        <span>GC-MS</span>
+                        <span>XRD</span>
+                    </div>
+                </div>
+                <div class="research-card reveal-up" data-delay="500">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">💊</div>
+                    <h3 class="card-title">Antidiabetic Research</h3>
+                    <p class="card-description">Investigation of antidiabetic properties of natural compounds derived
+                        from medicinal plants using molecular docking and in-vitro studies.</p>
+                    <div class="card-tags">
+                        <span>Molecular Docking</span>
+                        <span>Medicinal Plants</span>
+                        <span>In-vitro</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PUBLICATIONS SECTION ===== -->
+    <section id="publications" class="section publications-section">
+        <div class="section-container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">03 — Publications</span>
+                <h2 class="section-title">Published Works</h2>
+            </div>
+
+            <!-- Publication Filters -->
+            <div class="pub-controls reveal-up">
+                <div class="pub-search">
+                    <input type="text" id="pubSearch" placeholder="Search publications..." class="pub-search-input"
+                        autocomplete="off">
+                    <span class="search-icon">⌕</span>
+                </div>
+                <div class="pub-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="journal">Journal Articles</button>
+                    <button class="filter-btn" data-filter="book">Book Chapters</button>
+                    <button class="filter-btn" data-filter="magazine">Magazines</button>
+                </div>
+            </div>
+
+            <!-- Publications Count -->
+            <div class="pub-count reveal-up">
+                Showing <span id="pubCountDisplay">15</span> publications
+            </div>
+
+            <!-- Publication List -->
+            <div class="publications-list" id="publicationsList">
+                <!-- Journal Articles -->
+                <div class="pub-card reveal-up" data-type="journal" data-year="2025"
+                    data-journal="Journal of Hazardous Materials">
+                    <div class="pub-year-badge">2025</div>
+                    <div class="pub-content">
+                        <h4 class="pub-title">Exploring the plastic-fed Indian mealworm (<em>Tenebrio molitor</em>) gut
+                            bacterial strain (<em>Bacillus subtilis</em> AP-04)–A potential driver of polyethylene
+                            degradation</h4>
+                        <p class="pub-authors">Akash, K., Parthasarathi, R., Elango, R., & Bragadeeswaran, S.</p>
+                        <div class="pub-meta">
+                            <span class="pub-journal">Journal of Hazardous Materials, 486, 137022</span>
+                            <span class="pub-publisher">Elsevier</span>
+                        </div>
+                        <div class="pub-metrics">
+                            <span class="impact-factor">IF: 11.3</span>
+                            <span class="naas-rating">NAAS: 17.3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card reveal-up" data-type="journal" data-year="2024"
+                    data-journal="Archives of Microbiology">
+                    <div class="pub-year-badge">2024</div>
+                    <div class="pub-content">
+                        <h4 class="pub-title">Characterization of <em>Priestia megaterium</em> S1, a polymer-degrading
+                            gut microbe isolated from the gut of <em>Tenebrio molitor</em> larvae fed on Styrofoam</h4>
+                        <p class="pub-authors">Akash, K., Parthasarathi, R., Elango, R., & Bragadeeswaran, S.</p>
+                        <div class="pub-meta">
+                            <span class="pub-journal">Archives of Microbiology, 206(1), 48</span>
+                            <span class="pub-publisher">Springer Nature</span>
+                        </div>
+                        <div class="pub-metrics">
+                            <span class="impact-factor">IF: 2.6</span>
+                            <span class="naas-rating">NAAS: 8.6</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card reveal-up" data-type="journal" data-year="2025" data-journal="Biodegradation">
+                    <div class="pub-year-badge">2025</div>
+                    <div class="pub-content">
+                        <h4 class="pub-title">Exploring the intricate studies on low-density polyethylene (LDPE)
+                            biodegradation by <em>Bacillus cereus</em> AP-01, isolated from the gut of Styrofoam-fed
+                            <em>Tenebrio molitor</em> larvae
+                        </h4>
+                        <p class="pub-authors">Akash, K., Parthasarathi, R., Elango, R., & Bragadeeswaran, S.</p>
+                        <div class="pub-meta">
+                            <span class="pub-journal">Biodegradation, 36(1), 12</span>
+                            <span class="pub-publisher">Springer Nature</span>
+                        </div>
+                        <div class="pub-metrics">
+                            <span class="impact-factor">IF: 3.2</span>
+                            <span class="naas-rating">NAAS: 9.2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card reveal-up" data-type="journal" data-year="2025"
+                    data-journal="Water, Air, & Soil Pollution">
+                    <div class="pub-year-badge">2025</div>
+                    <div class="pub-content">
+                        <h4 class="pub-title">Exploring the Role of Microbes in the Biodegradation of Plastic Waste:
+                            Mechanisms, Interactions, and Implications for Sustainable Waste Management–A Review</h4>
+                        <p class="pub-authors">Akash, K., Parthasarathi, R., Kanmani Bharathi, J., & Elango, R.</p>
+                        <div class="pub-meta">
+                            <span class="pub-journal">Water, Air, & Soil Pollution, 236(12), 1-49</span>
+                            <span class="pub-publisher">Springer Nature</span>
+                        </div>
+                        <div class="pub-metrics">
+                            <span class="impact-factor">IF: 3.0</span>
+                            <span class="naas-rating">NAAS: 9.0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card reveal-up" data-type="journal" data-year="2024"
+                    data-journal="Biocatalysis and Agricultural Biotechnology">
+                    <div class="pub-year-badge">2024</div>
+                    <div class="pub-content">
+                        <h4 class="pub-title"><em>Serratia rubidaea</em> SNAU02-mediated biosurfactant production from
+                            cashew apple bagasse: A promising biotechnological strategy for environmental sustainability
+                        </h4>
+                        <p class="pub-authors">Parthasarathi, R., Mayakrishnan, V., Natesan, V., Akash, K., et al.</p>
+                        <div class="pub-meta">
+                            <span class="pub-journal">Biocatalysis and Agricultural Biotechnology, 58, 103158</span>
+                            <span class="pub-publisher">Elsevier</span>
+                        </div>
+                        <div class="pub-metrics">
+                            <span class="impact-factor">IF: 3.8</span>
+                            <span class="naas-rating">NAAS: 9.8</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card reveal-up" data-type="journal" data-year="2023" data-journal="Eur. Chem. Bull.">
+                    <div class="pub-year-badge">2023</div>
+                    <div class="pub-content">
+                        <h4 class="pub-title">Biosurfactant-based biocontrol of agriculturally important plant pathogens
+                        </h4>
+                        <p class="pub-authors">Parthasarathi, R., Sivasakthivelan, P., Arivukkarasu, K., Akash, K., et
+                            al.</p>
+                        <div class="pub-meta">
+                            <span class="pub-journal">Eur. Chem. Bull. 2023, 12 (Special Issue 10), 3279-3296</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card reveal-up" data-type="journal" data-year="2026" data-journal="Plant Science Today">
+                    <div class="pub-year-badge">2026</div>
+                    <div class="pub-content">
+                        <h4 class="pub-title">Microbial biofilms and their role in sustainable agriculture and
+                            climate-smart farming</h4>
+                        <p class="pub-authors">Kaviarasi V, Parthasarathi R, Akash K, et al.</p>
+                        <div class="pub-meta">
+                            <span class="pub-journal">Plant Science Today, 13(sp1), 01–11</span>
+                        </div>
+                        <div class="pub-metrics">
+                            <span class="naas-rating">NAAS: 6.70</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card reveal-up" data-type="journal" data-year="2026" data-journal="Microbiology">
+                    <div class="pub-year-badge">2026</div>
+                    <div class="pub-content">
+                        <h4 class="pub-title">Microbial Degradation of Polystyrene: Mechanisms, Enzymes and
+                            Environmental Significance</h4>
+                        <p class="pub-authors">V. Kaviarasi, R. Parthasarathi, K. Akash, et al.</p>
+                        <div class="pub-meta">
+                            <span class="pub-journal">Microbiology, 2026, Vol. 95, No. 2, pp. 184–207</span>
+                            <span class="pub-publisher">Springer</span>
+                        </div>
+                        <div class="pub-metrics">
+                            <span class="impact-factor">IF: 1.3</span>
+                            <span class="naas-rating">NAAS: 7.3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card reveal-up" data-type="journal" data-year="2025"
+                    data-journal="Journal of Experimental Agriculture International">
+                    <div class="pub-year-badge">2025</div>
+                    <div class="pub-content">
+                        <h4 class="pub-title">Effect of New Biofertilizer Formulations on the Growth and Yield of Rice
+                            (<em>Oryza sativa</em> L., var. VGD1) under Field Conditions</h4>
+                        <p class="pub-authors">Rengasamy Parthasarathi, Jagnathan Nambi, et al., Krishnamoorthi Akash,
+                            et al.</p>
+                        <div class="pub-meta">
+                            <span class="pub-journal">Journal of Experimental Agriculture International, 47(7),
+                                435-443</span>
+                        </div>
+                        <div class="pub-metrics">
+                            <span class="naas-rating">NAAS: 5.14</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card reveal-up" data-type="journal" data-year="2022"
+                    data-journal="Indian Journal of Natural Sciences">
+                    <div class="pub-year-badge">2022</div>
+                    <div class="pub-content">
+                        <h4 class="pub-title">Influence of Liquid Formulations on Growth and Yield of Bhendi Var. Arka
+                            Anamika</h4>
+                        <p class="pub-authors">K. Akash, Elango.R, Parthasarathi.R and Kavinilavu.N.</p>
+                        <div class="pub-meta">
+                            <span class="pub-journal">Indian Journal of Natural Sciences, 13(74)</span>
+                        </div>
+                        <div class="pub-metrics">
+                            <span class="naas-rating">NAAS: 4.37</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card reveal-up" data-type="journal" data-year="2021"
+                    data-journal="International Journal of Botany Studies">
+                    <div class="pub-year-badge">2021</div>
+                    <div class="pub-content">
+                        <h4 class="pub-title">Effects of bio-fertilizer on growth and yield of rice (<em>Oryza
+                                sativa</em>) AU1GSR cultivar</h4>
+                        <p class="pub-authors">R Parthasarathi, R Elango, J. Srimannarayana, K Akash and N Kavinilavu.
+                        </p>
+                        <div class="pub-meta">
+                            <span class="pub-journal">International Journal of Botany Studies 6(5), 673-676</span>
+                        </div>
+                        <div class="pub-metrics">
+                            <span class="naas-rating">NAAS: 4.37</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book Chapters -->
+                <div class="pub-card reveal-up" data-type="book" data-year="2023">
+                    <div class="pub-year-badge">2023</div>
+                    <div class="pub-type-badge">📚 Book Chapter</div>
+                    <div class="pub-content">
+                        <h4 class="pub-title">Mosquitocidal Activity of Biosurfactants</h4>
+                        <p class="pub-authors">Parthasarathi, R., Harini, S., Poonguzhali, P., Akash, K., & Kavinilavu,
+                            N.</p>
+                        <div class="pub-meta">
+                            <span class="pub-journal">In Multifunctional Microbial Biosurfactants (pp. 251-269)</span>
+                            <span class="pub-publisher">Springer Nature Switzerland</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card reveal-up" data-type="book" data-year="2023">
+                    <div class="pub-year-badge">2023</div>
+                    <div class="pub-type-badge">📚 Book Chapter</div>
+                    <div class="pub-content">
+                        <h4 class="pub-title">Critique on plastic pollution reduction strategies</h4>
+                        <p class="pub-authors">K. Akash, R.Parthasarathi, and Elango. R</p>
+                        <div class="pub-meta">
+                            <span class="pub-journal">Archives of Agriculture and Allied Sciences</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Magazines -->
+                <div class="pub-card reveal-up" data-type="magazine" data-year="2025">
+                    <div class="pub-year-badge">2025</div>
+                    <div class="pub-type-badge">📰 Magazine</div>
+                    <div class="pub-content">
+                        <h4 class="pub-title">Quorum Sensing</h4>
+                        <p class="pub-authors">Krishnamoorthi Akash, Rengasamy Parthasarathi, Rajavel Elango, et al.</p>
+                        <div class="pub-meta">
+                            <span class="pub-journal">AgriTech Today e-Magazine: Volume 2, Issue 11 (February,
+                                2025)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card reveal-up" data-type="magazine" data-year="2024">
+                    <div class="pub-year-badge">2024</div>
+                    <div class="pub-type-badge">📰 Magazine</div>
+                    <div class="pub-content">
+                        <h4 class="pub-title">Bioremediation and Phytoremediation of Contaminated Soils</h4>
+                        <p class="pub-authors">Krishnamoorthi Akash, Rengasamy Parthasarathi, Rajavel Elango, et al.</p>
+                        <div class="pub-meta">
+                            <span class="pub-journal">AgriTech Today e-Magazine: Volume 2, Issue 9 (December,
+                                2024)</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NCBI DEPOSITS SECTION ===== -->
+    <section id="deposits" class="section deposits-section">
+        <div class="section-container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">04 — NCBI Deposits</span>
+                <h2 class="section-title">Gene Bank Submissions</h2>
+            </div>
+            <div class="deposits-grid">
+                <div class="deposit-card reveal-up">
+                    <div class="deposit-icon">🧬</div>
+                    <h4 class="deposit-name"><em>Priestia megaterium</em> strain RP1/S1</h4>
+                    <p class="deposit-source">Gut of <em>Tenebrio molitor</em></p>
+                    <code class="deposit-accession">ON024787</code>
+                    <span class="deposit-capability">Styrofoam & plastic degradation</span>
+                </div>
+                <div class="deposit-card reveal-up">
+                    <div class="deposit-icon">🧬</div>
+                    <h4 class="deposit-name"><em>Bacillus cereus</em> strain AP01</h4>
+                    <p class="deposit-source">Gut of <em>Tenebrio molitor</em></p>
+                    <code class="deposit-accession">OR288218</code>
+                    <span class="deposit-capability">Styrofoam & plastic degradation</span>
+                </div>
+                <div class="deposit-card reveal-up">
+                    <div class="deposit-icon">🧬</div>
+                    <h4 class="deposit-name"><em>Priestia flexa</em> strain AP02</h4>
+                    <p class="deposit-source">Gut of <em>Tenebrio molitor</em></p>
+                    <code class="deposit-accession">OR288580</code>
+                    <span class="deposit-capability">Styrofoam & plastic degradation</span>
+                </div>
+                <div class="deposit-card reveal-up">
+                    <div class="deposit-icon">🧬</div>
+                    <h4 class="deposit-name"><em>Bacillus pumilus</em> strain AP03</h4>
+                    <p class="deposit-source">Gut of <em>Tenebrio molitor</em></p>
+                    <code class="deposit-accession">OR295391</code>
+                    <span class="deposit-capability">Styrofoam & plastic degradation</span>
+                </div>
+                <div class="deposit-card reveal-up">
+                    <div class="deposit-icon">🧬</div>
+                    <h4 class="deposit-name"><em>Bacillus subtilis</em> strain AP04</h4>
+                    <p class="deposit-source">Gut of <em>Tenebrio molitor</em></p>
+                    <code class="deposit-accession">OR288581</code>
+                    <span class="deposit-capability">Styrofoam & plastic degradation</span>
+                </div>
+                <div class="deposit-card reveal-up">
+                    <div class="deposit-icon">🧬</div>
+                    <h4 class="deposit-name"><em>Priestia aryabhattai</em> strain KA1</h4>
+                    <p class="deposit-source">Gut of <em>Tenebrio molitor</em></p>
+                    <code class="deposit-accession">PP854711</code>
+                    <span class="deposit-capability">Styrofoam & plastic degradation</span>
+                </div>
+                <div class="deposit-card reveal-up">
+                    <div class="deposit-icon">🧬</div>
+                    <h4 class="deposit-name"><em>Priestia aryabhattai</em> strain KA2</h4>
+                    <p class="deposit-source">Gut of <em>Tenebrio molitor</em></p>
+                    <code class="deposit-accession">PP855417</code>
+                    <span class="deposit-capability">Styrofoam & plastic degradation</span>
+                </div>
+                <div class="deposit-card reveal-up">
+                    <div class="deposit-icon">🧬</div>
+                    <h4 class="deposit-name"><em>Franconibacter daqui</em> strain SPF8</h4>
+                    <p class="deposit-source">Gut of wax worm</p>
+                    <code class="deposit-accession">PQ269787</code>
+                    <span class="deposit-capability">Styrofoam & plastic degradation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE & EDUCATION SECTION ===== -->
+    <section id="experience" class="section experience-section">
+        <div class="section-container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">05 — Journey</span>
+                <h2 class="section-title">Experience & Education</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item left reveal-up">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge work">Work</span>
+                        <h4>Chief Technical Officer</h4>
+                        <p class="timeline-org">Research Hub</p>
+                        <span class="timeline-date">2024 – Present</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item right reveal-up">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge education">Education</span>
+                        <h4>Ph.D. in Agricultural Microbiology</h4>
+                        <p class="timeline-org">Annamalai University, Chidambaram</p>
+                        <span class="timeline-date">2019 – Present</span>
+                        <p class="timeline-detail">OGPA: 9.32 · Enhanced biodegradation of LDPE by bacterial strains
+                            from the gut of plastic-eating mealworms</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left reveal-up">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge work">Work</span>
+                        <h4>Project Fellow (3 Years)</h4>
+                        <p class="timeline-org">TANSCHE Project — Rs. 48,56,000/-</p>
+                        <span class="timeline-date">2019 – 2022</span>
+                        <p class="timeline-detail">Biodegradation of LDPE using gut microbial consortium isolated from
+                            Indian Meal Worm</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right reveal-up">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge work">Work</span>
+                        <h4>Supporting Researcher</h4>
+                        <p class="timeline-org">Annamalai University</p>
+                        <span class="timeline-date">2023 – 2024</span>
+                        <p class="timeline-detail">Antidiabetic properties of natural compounds from medicinal plants
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left reveal-up">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge education">Education</span>
+                        <h4>Master's in Agricultural Microbiology</h4>
+                        <p class="timeline-org">Annamalai University, Chidambaram</p>
+                        <span class="timeline-date">Graduated Aug 2021</span>
+                        <p class="timeline-detail">OGPA: 9.17</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right reveal-up">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge education">Education</span>
+                        <h4>Bachelor's in Agriculture</h4>
+                        <p class="timeline-org">Ramakrishna Mission Vivekananda Educational and Research Institute,
+                            Coimbatore</p>
+                        <span class="timeline-date">Graduated May 2019</span>
+                        <p class="timeline-detail">OGPA: 8.57</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== AWARDS SECTION ===== -->
+    <section id="awards" class="section awards-section">
+        <div class="section-container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">06 — Recognition</span>
+                <h2 class="section-title">Awards & Honors</h2>
+            </div>
+            <div class="awards-grid">
+                <div class="award-card reveal-up">
+                    <div class="award-icon">🏆</div>
+                    <h4 class="award-title">Norman E. Borlaug Young Scientist Award</h4>
+                    <p class="award-detail">2nd National Conference on Vision-2047: Technology Intervention for
+                        Prospects of Agriculture in India (TIPAI 2024)</p>
+                    <span class="award-year">2024</span>
+                </div>
+                <div class="award-card reveal-up">
+                    <div class="award-icon">🎖️</div>
+                    <h4 class="award-title">Prof. M. S. Swaminathan Award</h4>
+                    <p class="award-detail">9th National Conference on Addressing Environment Challenges in Agricultural
+                        Production</p>
+                    <span class="award-year">2023</span>
+                </div>
+                <div class="award-card reveal-up">
+                    <div class="award-icon">🏅</div>
+                    <h4 class="award-title">Best Research Scholar Award</h4>
+                    <p class="award-detail">International Conference on Global Challenges of Food and Agriculture:
+                        Future Trends (GCFA-2023)</p>
+                    <span class="award-year">2023</span>
+                </div>
+                <div class="award-card reveal-up">
+                    <div class="award-icon">📋</div>
+                    <h4 class="award-title">Anti Drug Committee Secretary</h4>
+                    <p class="award-detail">Faculty of Agriculture, Annamalai University, India</p>
+                    <span class="award-year">2023 – 2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS SECTION ===== -->
+    <section id="skills" class="section skills-section">
+        <div class="section-container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">07 — Expertise</span>
+                <h2 class="section-title">Technical Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category reveal-up">
+                    <h4 class="skill-cat-title">Molecular Biology</h4>
+                    <div class="skill-items">
+                        <span class="skill-pill">PCR</span>
+                        <span class="skill-pill">16S rRNA Sequencing</span>
+                        <span class="skill-pill">Gene Cloning</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal-up">
+                    <h4 class="skill-cat-title">Instrumentation & Analysis</h4>
+                    <div class="skill-items">
+                        <span class="skill-pill">LC-MS</span>
+                        <span class="skill-pill">GC-MS</span>
+                        <span class="skill-pill">HRLC-MS</span>
+                        <span class="skill-pill">DLS</span>
+                        <span class="skill-pill">SEM</span>
+                        <span class="skill-pill">TEM</span>
+                        <span class="skill-pill">NMR</span>
+                        <span class="skill-pill">XRD</span>
+                        <span class="skill-pill">AFM</span>
+                        <span class="skill-pill">CLSM</span>
+                        <span class="skill-pill">Molecular Docking</span>
+                        <span class="skill-pill">Spectroscopy</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal-up">
+                    <h4 class="skill-cat-title">Software & Tools</h4>
+                    <div class="skill-items">
+                        <span class="skill-pill">Adobe Creative Tools</span>
+                        <span class="skill-pill">Microsoft Office</span>
+                        <span class="skill-pill">R Programming</span>
+                        <span class="skill-pill">GraphPad Prism</span>
+                        <span class="skill-pill">Origin</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal-up">
+                    <h4 class="skill-cat-title">Languages</h4>
+                    <div class="skill-items">
+                        <span class="skill-pill">English</span>
+                        <span class="skill-pill">Tamil</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="section contact-section">
+        <div class="section-container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">08 — Connect</span>
+                <h2 class="section-title">Get in Touch</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal-up">
+                    <p class="contact-intro">Interested in collaboration, research discussions, or academic
+                        opportunities? Feel free to reach out.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <div>
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:kakash30111997@gmail.com"
+                                    class="contact-value">kakash30111997@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📱</span>
+                            <div>
+                                <span class="contact-label">Phone</span>
+                                <span class="contact-value">+91 88259 68792</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <div>
+                                <span class="contact-label">Location</span>
+                                <span class="contact-value">Ranipet, Tamil Nadu, India</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.researchgate.net/profile/Akash-Krishnamoorthi/research" target="_blank"
+                            class="social-link" title="ResearchGate">RG</a>
+                        <a href="https://orcid.org/0000-0002-1858-8047" target="_blank" class="social-link"
+                            title="ORCID">ID</a>
+                        <a href="https://www.linkedin.com/feed/" target="_blank" class="social-link"
+                            title="LinkedIn">in</a>
+                        <a href="https://www.scopus.com/authid/detail.uri?authorId=59062764600" target="_blank"
+                            class="social-link" title="Scopus">Sc</a>
+                    </div>
+                </div>
+                <div class="contact-form-container reveal-up">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="formName" placeholder="Your Name" required autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="formEmail" placeholder="Your Email" required autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="formSubject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="formMessage" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary btn-submit">
+                            <span>Send Message</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo">🔬 AK</span>
+                    <p>Akash Krishnamoorthi — Researcher in Agricultural Microbiology</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#research">Research</a>
+                    <a href="#publications">Publications</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Akash Krishnamoorthi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
